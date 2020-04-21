@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GossipTests {
     @Test
-    public void gossipTest1() throws IOException {
+    public void gossipTest1() throws IOException, InterruptedException {
         GossipConnectionHandler a = new GossipConnectionHandler("Alice");
         GossipConnectionHandler b = new GossipConnectionHandler("Bob");
         GossipConnectionHandler c = new GossipConnectionHandler("Clara");
@@ -59,5 +59,7 @@ public class GossipTests {
 
         // finally - start gossip
         a.sendGossipMessage("Have your heard... wow.");
+
+        Thread.sleep(100);
     }
 }
