@@ -11,7 +11,7 @@ public class GossipConnectionHandler implements ConnectionHandler {
     private HashMap<Integer, OutputStream> activeOutputStreams = new HashMap<>();
     private int nextReadNumber = 0;
 
-    private List<String> usedIDs = new ArrayList<>();
+    private Set<String> usedIDs = new HashSet<>();
 
     public GossipConnectionHandler(String name) {
         this.name = name;
@@ -63,7 +63,7 @@ public class GossipConnectionHandler implements ConnectionHandler {
         } else {
             // now message do gossip
             System.out.println(this.name + ": got message: " + gossipPDU);
-            List<Integer> deadIDs = new ArrayList<>();
+            Set<Integer> deadIDs = new HashSet<>();
             for(Integer id : activeOutputStreams.keySet()) {
                 if(gossipReader.id != id) {
                     // don't send back to sender but anybody else
