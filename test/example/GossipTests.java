@@ -58,7 +58,7 @@ public class GossipTests {
         c.handleConnection(c2b.getInputStream(), c2b.getOutputStream());
 
         // finally - start gossip
-        a.sendGossipMessage("Have your heard... wow.");
+        a.sendGossipMessage("Did your hear... wow.");
 
         Thread.sleep(100);
     }
